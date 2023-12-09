@@ -1,0 +1,31 @@
+.triangle, .triangle:before, .triangle:after { width: 4em; height: 4em; }
+.triangle {
+	overflow: hidden;
+	position: absolute;
+
+	border-radius: 20%;
+	transform: translateY(50%) rotate(30deg) skewY(30deg) scaleX(.866);
+	cursor: pointer;
+	pointer-events: none;
+        scale: 1.6;
+
+} 
+.triangle:before, .triangle:after {
+	position: absolute;
+	background: orange;
+	pointer-events: auto;
+	content: '';
+}
+
+
+.triangle:before {
+	border-radius: 20% 20% 20% 53%;
+	transform: scaleX(1.155) skewY(-30deg) rotate(-30deg) translateY(-42.3%) 
+			skewX(30deg) scaleY(.866) translateX(-24%);
+}
+.triangle:after {
+	border-radius: 20% 20% 53% 20%;
+	transform: scaleX(1.155) skewY(-30deg) rotate(-30deg) translateY(-42.3%) 
+			skewX(-30deg) scaleY(.866) translateX(24%);
+}
+
