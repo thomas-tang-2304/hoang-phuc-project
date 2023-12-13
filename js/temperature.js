@@ -53,10 +53,10 @@ dbRefTemp.child("System Type").on("value", (snap) => {
   triggerColor("#sysType", val, "System Type");
 });
 
-dbRefMonitor .child("UI08").on("value", (snap) => {
-  const val = snap.node_.children_.root_.left.value.value_;
-  document.querySelector(".circle3 h2").innerHTML = val + "°C";
-})
+// dbRefMonitor .child("UI08").on("value", (snap) => {
+//   const val = snap.node_.children_.root_.left.value.value_;
+//   document.querySelector(".circle3 h2").innerHTML = val + "°C";
+// })
 
 dbRefTemp.child("Setpoint").on("value", (snap) => {
   
