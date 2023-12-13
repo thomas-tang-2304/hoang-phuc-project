@@ -16,27 +16,27 @@ function triggerColor(selector, val, mess) {
 
 dbRefMonitor.child("Current").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#current", val, `Dòng điện ${val} A`);
+  triggerColor("#current", val, `Current ${val} A`);
 });
 
 dbRefMonitor.child("Power").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#power", val, `Công suất ${val} kW`);
+  triggerColor("#power", val, `Wattage ${val} kW`);
 });
 
 dbRefMonitor.child("frequency").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#frequency", val, `Tần số ${val} Hz`);
+  triggerColor("#frequency", val, `Frequency ${val} Hz`);
 });
 
 dbRefMonitor.child("Speed").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#speed", val, `Tốc độ ${val} RPM`);
+  triggerColor("#speed", val, `Speed ${val} RPM`);
 });
 
 dbRefMonitor.child("Voltage").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#voltage", val, `Điện áp ${val} V`);
+  triggerColor("#voltage", val, `Voltage ${val} V`);
 });
 
 dbRefMonitor.child("ACC").on("value", (snap) => {

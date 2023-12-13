@@ -53,15 +53,20 @@ dbRefTemp.child("System Type").on("value", (snap) => {
   triggerColor("#sysType", val, "System Type");
 });
 
+dbRefMonitor .child("UI08").on("value", (snap) => {
+  const val = snap.node_.children_.root_.left.value.value_;
+  document.querySelector(".circle3 h2").innerHTML = val + "°C";
+})
+
 dbRefTemp.child("Setpoint").on("value", (snap) => {
   
   const SetpointVal = snap.node_.value_;
 
-  document.querySelector(".circle h2").innerHTML = SetpointVal;
+  document.querySelector(".circle h2").innerHTML = SetpointVal + "°C";
 
   dbRefMonitor.child("UI03").on("value", (snap) => {
     const RoomTempVal = snap.node_.children_.root_.left.value.value_;
-    document.querySelector(".circle2 h2").innerHTML = RoomTempVal;
+    document.querySelector(".circle2 h2").innerHTML = RoomTempVal + "°C";
     if (Math.abs(SetpointVal - RoomTempVal) < 1) {
       triggerColor("#fanStt", 0, "Fan Status");
       dbRefCtrl.child("Fre ref").set(20);

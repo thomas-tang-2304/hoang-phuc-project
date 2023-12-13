@@ -1,5 +1,5 @@
 function getLogin(username) {
-  console.log("login");
+  // console.log("login");
   if (username != "ChauHoangPhuc19142080") {
     window.location.href = "/login.html";
   }
