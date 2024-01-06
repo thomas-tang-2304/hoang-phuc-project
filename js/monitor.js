@@ -75,20 +75,20 @@ dbRefMonitor.child("UI01").on("value", (snap) => {
       let tg = true;
       sensorItv = setInterval(() => {
         if (tg) {
-          document.querySelector("link[href='triangleCSS/style.css']").href =
-            "triangleCSS/style2.css";
+          document.querySelector("img[src='img/alarm.png']").src =
+            "img/alarm2.png";
           tg = false;
         } else {
-          document.querySelector("link[href='triangleCSS/style2.css']").href =
-            "triangleCSS/style.css";
+          document.querySelector("img[src='img/alarm2.png']").src =
+            "img/alarm.png";
           tg = true;
         }
       }, 500);
     } else {
       clearInterval(sensorItv);
-      if (document.querySelector("link[href='triangleCSS/style2.css']")) {
-        document.querySelector("link[href='triangleCSS/style2.css']").href =
-          "triangleCSS/style.css";
+      if (document.querySelector("img[src='img/alarm2.png']")) {
+        document.querySelector("img[src='img/alarm2.png']").src =
+          "img/alarm.png";
       }
     }
   });
