@@ -83,15 +83,25 @@ dbRefTemp.child("Setpoint").on("value", (snap) => {
     dbRefCtrl.child("Run com").on("value", (snap) => {
       const runComVal = snap.node_.value_;
       if (runComVal == 1) {
-       document.querySelector(".temp-icon.heating").style.opacity = "0.3";
-       document.querySelector(".temp-icon.cooling").style.opacity = "0.3";
+        document.querySelector(".temp-icon.heating").style.opacity = "0.6";
+        document.querySelector(".temp-icon.cooling").style.opacity = "0.6";
+         document.querySelector(".temp-icon.heating .mode").innerHTML = "";
+         document.querySelector(".temp-icon.cooling .mode").innerHTML =
+           "";
       } else {
         if (SetpointVal < RoomTempVal) {
-          document.querySelector(".temp-icon.heating").style.opacity = "0.3";
-          document.querySelector(".temp-icon.cooling").style.opacity = "1";
+          document.querySelector(".temp-icon.heating").style.opacity = "0.6";
+          document.querySelector(".temp-icon.cooling").style.opacity = "1.3";
+
+          document.querySelector(".temp-icon.heating .mode").innerHTML = "";
+          document.querySelector(".temp-icon.cooling .mode").innerHTML =
+            "Cooling";
         } else {
-           document.querySelector(".temp-icon.heating").style.opacity = "1";
-           document.querySelector(".temp-icon.cooling").style.opacity = "0.3";
+          document.querySelector(".temp-icon.heating").style.opacity = "1.3";
+          document.querySelector(".temp-icon.cooling").style.opacity = "0.6";
+          document.querySelector(".temp-icon.heating .mode").innerHTML =
+            "Heating";
+          document.querySelector(".temp-icon.cooling .mode").innerHTML = "";
         }
       }
     });

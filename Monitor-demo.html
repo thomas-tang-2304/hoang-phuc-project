@@ -18,14 +18,16 @@
         }
 
         body:after {
-            content: '';
-            background: rgba(255, 255, 255, .5);
-            width: 100%;
-            height: 200%;
-            display: block;
-            position: absolute;
+             content: "";
+            position: fixed;
             top: 0;
+            bottom: 0;
             left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, .5);
+            pointer-events: none;
+            width: 100%;
+            height: 100vh;
         }
 
         .navbar {
@@ -93,13 +95,15 @@
 
         .button-group img {
             height: 150px;
+            margin: 8px 0;
         }
 
         b.label {
             font-size: 18px;
             color: black !important;
-            background-color: transparent;
-            padding: 0;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: #fff8;
 
         }
 
@@ -122,6 +126,46 @@
         h1 {
             font-family: "Ubuntu", sans-serif;
             font-size: 48px;
+        }
+
+        @media screen and (max-width: 1630px) {
+            body {
+                overflow-y: scroll;
+                background-size: 100%;
+                background-repeat: repeat;
+            }
+
+
+            .button-group {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+                margin-top: 20px;
+                width: 100%;
+                justify-items: center;
+            }
+        }
+
+        @media screen and (max-width: 960px) {
+            body {
+                overflow-y: scroll;
+                background-size: 100%;
+                background-repeat: repeat;
+            }
+
+
+            .button-group {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+                margin-top: 20px;
+                width: 100%;
+                justify-items: center;
+            }
         }
     </style>
 </head>
