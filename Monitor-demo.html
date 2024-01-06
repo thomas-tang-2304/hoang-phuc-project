@@ -11,17 +11,27 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         body {
-            background-color: #b3e0b3;
-            /* Light green background color */
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
+            background-image: url(../img/PAU.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            overflow-y: hidden;
+        }
+
+        body:after {
+            content: '';
+            background: rgba(255, 255, 255, .5);
+            width: 100%;
+            height: 200%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .navbar {
-            background-color: #343a40;
+            /* background-color: #343a40; */
             padding: 10px;
-            color: white;
+            color: black;
             text-align: center;
         }
 
@@ -30,30 +40,40 @@
             flex-direction: column;
             align-items: center;
             margin-top: 20px;
+            z-index: 10000000;
+            position: relative;
         }
 
         .button-group {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
             margin-top: 20px;
+            width: 100%;
+            justify-items: center;
         }
 
         .button-column {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
             gap: 15px;
         }
 
         .monitor-button {
+            background-color: transparent !important;
             width: 150px;
-            height: 80px;
+            /* height: 80px; */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             font-size: 14px;
-            background-color: #4CAF50;
+            /* background-color: #4CAF50; */
             /* Green button background */
             color: white;
             border: none;
@@ -70,80 +90,124 @@
             margin-bottom: 5px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
+
+        .button-group img {
+            height: 150px;
+        }
+
+        b.label {
+            font-size: 18px;
+            color: black !important;
+            background-color: transparent;
+            padding: 0;
+
+        }
+
+        b {
+            border-radius: 5px;
+            padding: 5px;
+            background-color: #fff8;
+            color: #4055c9 !important;
+            font-size: 22px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-evenly;
+            z-index: 1000;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        h1 {
+            font-family: "Ubuntu", sans-serif;
+            font-size: 48px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="navbar">
-            <h2>Monitoring System</h2>
+            <h1>MONITORING</h1>
         </div>
-        <div class="stop p-3">
 
-            <img src="img/stop-button.png" alt="stop" style="width: 100px;">
-        </div>
 
         <div class="button-group">
-            <div class="button-column">
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-lightning"></i>
-                    <b id="voltage">Voltage 0 V</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-bolt"></i>
-                    <b id="current">Current 0 A</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-bar-chart-line"></i>
-                    <b id="frequency">Frequency 0 Hz</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-speedometer2"></i>
-                    <b id="speed">Speed 0 RPM</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-lightbulb"></i>
-                    <b id="power">Wattage 0 kW</b>
-                </button>
-            </div>
-            <div class="button-column">
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-battery"></i>
-                    <b id="accu">ACC 0 S</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-arrow-down-up"></i>
-                    <b id="decr">DEC 0 S</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-grid-1x2"></i>
-                    <b id="paralock">Para lock 0</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-arrow-repeat"></i>
-                    <b id="freref">Fre ref 0 HZ</b>
-                </button>
-                <button type="button" class="monitor-button btn btn-primary">
-                    <i class="bi bi-play-circle"></i>
-                    <b id="runcom">Run com 0</b>
-                </button>
-            </div>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Voltage</b>
+                <img src="img/MO-voltage.png" alt="">
+                <b id="voltage">0 V</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Current</b>
+                <img src="img/MO-Curent.png" alt="">
+                <b id="current">0 A</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Frequency</b>
+                <img src="img/MO-Frequency-and Fre-ref.png" alt="">
+                <b id="frequency">0 Hz</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Speed</b>
+                <img src="img/MO-RPM.png" alt="">
+                <b id="speed">0 RPM</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Wattage</b>
+                <img src="img/MO-Power_Watage.png" alt="">
+                <b id="power">0 kW</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">ACC</b>
+                <img src="img/MO-ACC.png" alt="">
+                <b id="accu">0 S</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">DEC</b>
+                <img src="img/MO-DEC.png" alt="">
+                <b id="decr">0 S</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Para lock</b>
+                <img src="img/MO-Paralock.png" alt="">
+                <b id="paralock">0</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Fre ref</b>
+                <img src="img/MO-Curent.png" alt="">
+                <b id="freref">0 HZ</b>
+            </button>
+            <button type="button" class="monitor-button btn">
+                <b class="label">Run com</b>
+                <img src="img/MO-RunCom.png" alt="">
+                <b id="runcom">0</b>
+            </button>
         </div>
     </div>
-    <div class="warning">
-        <strong>Pressure sensor</strong>
-        <h1>0</h1>
-        <div class='triangle'>
+    <div class="flex">
+
+        <div class="stop p-3">
+
+            <img src="img/emergency button.png" alt="stop">
+            <p>Emergency stop</p>
+        </div>
+        <div class="warning">
+
+            <strong>Pressure sensor</strong>
+            <h1>0</h1>
+            <img src="img/alarm.png" alt="stop">
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-    <script type="module" src="js/main.js"></script>    
+    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/monitor.js"></script>
 </body>
 

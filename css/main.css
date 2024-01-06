@@ -1,6 +1,16 @@
-
+body {
+  background-image: url(../img/PAU.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 .logout {
-    position: absolute;
-    top: 20px; 
-    left: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #512779;
+  outline: none;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
 }

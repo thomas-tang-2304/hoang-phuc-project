@@ -7,61 +7,61 @@ let sensorItv;
 function triggerColor(selector, val, mess) {
   if (val != document.querySelector(selector).innerHTML) {
     document.querySelector(selector).innerHTML = `${mess}`;
-    document.querySelector(selector).parentNode.style.background = "blue";
+    // document.querySelector(selector).parentNode.style.background = "blue";
   }
   setTimeout(() => {
-    document.querySelector(selector).parentNode.style.background = "#4CAF50";
+    // document.querySelector(selector).parentNode.style.background = "#4CAF50";
   }, 2000);
 }
 
 dbRefMonitor.child("Current").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#current", val, `Current ${val} A`);
+  triggerColor("#current", val, `${val} A`);
 });
 
 dbRefMonitor.child("Power").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#power", val, `Wattage ${val} kW`);
+  triggerColor("#power", val, `${val} kW`);
 });
 
 dbRefMonitor.child("frequency").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#frequency", val, `Frequency ${val} Hz`);
+  triggerColor("#frequency", val, `${val} Hz`);
 });
 
 dbRefMonitor.child("Speed").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#speed", val, `Speed ${val} RPM`);
+  triggerColor("#speed", val, `${val} RPM`);
 });
 
 dbRefMonitor.child("Voltage").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#voltage", val, `Voltage ${val} V`);
+  triggerColor("#voltage", val, `${val} V`);
 });
 
 dbRefMonitor.child("ACC").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#accu", val, `ACC   ${val} S`);
+  triggerColor("#accu", val, `${val} S`);
 });
 
 dbRefMonitor.child("DEC").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#decr", val, `DEC ${val} S`);
+  triggerColor("#decr", val, `${val} S`);
 });
 
 dbRefMonitor.child("Fre ref").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#freref", val, `Fre ref ${val} HZ`);
+  triggerColor("#freref", val, `${val} HZ`);
 });
 
 dbRefMonitor.child("Para lock").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#paralock", val, `Para lock ${val}`);
+  triggerColor("#paralock", val, `${val}`);
 });
 
 dbRefMonitor.child("Run com").on("value", (snap) => {
   const val = snap.node_.children_.root_.left.value.value_;
-  triggerColor("#runcom", val, `Run com ${val}`);
+  triggerColor("#runcom", val, `${val}`);
 });
 
 const styleCSS = document.querySelector("link[href='triangleCSS/style.css']");

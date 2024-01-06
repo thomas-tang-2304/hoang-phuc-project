@@ -3,19 +3,26 @@
   justify-content: center;
   position: relative;
   /* height: 300px; */
-  margin-top: 5rem;
+  margin-top: 4rem;
+  top: -54px;
+  width: 150px;
+}
+
+.warning img {
+  height: 80px;
 }
 
 .warning h1 {
   position: absolute;
-  top: 45px;
+  bottom: -25px;
   z-index: 100;
   font-size: x-large;
+  color: #820202;
 }
 
 .warning strong {
   position: absolute;
-  top: 90px;
+  top: 100px;
   font-size: large;
 }
 strong {
@@ -59,4 +66,20 @@ strong {
   justify-content: center;
   padding: 1rem 0;
   height: 85px;
+}
+
+.stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stop p {
+  color: black;
+  font-weight: 800;
+  font-size: large;
+}
+
+.stop img {
+  width: 80px;
 }

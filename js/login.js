@@ -2,13 +2,13 @@
 //   "Try to enter username or password to see the panda reacting to your actions."
 // );
 $(document).ready(function () {
-    $("#login-button").click(() => {
-        console.log(document.querySelector("input[type='text']").value);
-      login(
-        document.querySelector("input[type='text']").value,
-        document.querySelector("input[type='password']").value
-      );
-    });
+  $("#login-button").click(() => {
+    console.log(document.querySelector("input[type='password']").value);
+    login(
+      document.querySelector("input[type='text']").value,
+      document.querySelector("input[type='password']").value
+    );
+  });
   $(":text").focus(function () {
     $(".handl").css({
       transform: "rotate(0deg)",
@@ -60,13 +60,10 @@ $(document).ready(function () {
 });
 
 const login = (username, password) => {
- 
   if (username == "ChauHoangPhuc19142080" && password == "19142080") {
     document.cookie = `login_token=${username}`;
-    window.location.href = '/'
+    window.location.href = "/";
   } else {
     alert("Người dùng không hợp lệ");
   }
 };
-
-

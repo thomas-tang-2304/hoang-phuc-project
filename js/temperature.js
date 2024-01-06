@@ -5,11 +5,11 @@ const dbRefCtrlSen = firebase.database().ref("Control sensor");
 
 function triggerColor(selector, val, mess) {
   if (val != document.querySelector(selector).innerHTML) {
-    document.querySelector(selector).innerHTML = `${mess}: ${val}`;
-    document.querySelector(selector).parentNode.style.background = "blue";
+    document.querySelector(selector).innerHTML = `${val}`;
+    // document.querySelector(selector).parentNode.style.background = "blue";
   }
   setTimeout(() => {
-    document.querySelector(selector).parentNode.style.background = "#4CAF50";
+    // document.querySelector(selector).parentNode.style.background = "#4CAF50";
   }, 2000);
 }
 
@@ -59,15 +59,16 @@ dbRefTemp.child("System Type").on("value", (snap) => {
 // })
 
 dbRefTemp.child("Setpoint").on("value", (snap) => {
-  
   const SetpointVal = snap.node_.value_;
 
-  document.querySelector(".circle h2").innerHTML = SetpointVal + "°C";
+  document.querySelector("h2.set-point").innerHTML =
+    "Set Point: " + SetpointVal + "°C";
 
   dbRefMonitor.child("UI03").on("value", (snap) => {
     const RoomTempVal = snap.node_.children_.root_.left.value.value_;
-    document.querySelector(".circle2 h2").innerHTML = RoomTempVal + "°C";
-    if (Math.abs(SetpointVal - RoomTempVal) < 1) {
+    document.querySelector("h2.room-temp").innerHTML =
+      "Room Temp: " + RoomTempVal + "°C";
+    if (Math.abs(SetpointVal - RoomTempVal) == 0) {
       triggerColor("#fanStt", 0, "Fan Status");
       dbRefCtrl.child("Fre ref").set(20);
     } else {
@@ -82,14 +83,15 @@ dbRefTemp.child("Setpoint").on("value", (snap) => {
     dbRefCtrl.child("Run com").on("value", (snap) => {
       const runComVal = snap.node_.value_;
       if (runComVal == 1) {
-        document.querySelector("#mode h1").innerHTML = "";
+       document.querySelector(".temp-icon.heating").style.opacity = "0.3";
+       document.querySelector(".temp-icon.cooling").style.opacity = "0.3";
       } else {
         if (SetpointVal < RoomTempVal) {
-          document.querySelector("#mode h1").style.color = "blue";
-          document.querySelector("#mode h1").innerHTML = "Cooling";
+          document.querySelector(".temp-icon.heating").style.opacity = "0.3";
+          document.querySelector(".temp-icon.cooling").style.opacity = "1";
         } else {
-          document.querySelector("#mode h1").style.color = "red";
-          document.querySelector("#mode h1").innerHTML = "Heating ";
+           document.querySelector(".temp-icon.heating").style.opacity = "1";
+           document.querySelector(".temp-icon.cooling").style.opacity = "0.3";
         }
       }
     });
@@ -97,9 +99,8 @@ dbRefTemp.child("Setpoint").on("value", (snap) => {
   // if (val != )
 });
 
-document.querySelector(".circle").addEventListener("click", () => {
-  openSetPointAlert(document.querySelector(".circle").innerHTML);
-  
+document.querySelector(".set-point-button").addEventListener("click", () => {
+  openSetPointAlert();
 });
 
 function openSetPointAlert() {

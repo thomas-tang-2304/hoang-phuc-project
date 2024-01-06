@@ -1,29 +1,26 @@
 body {
-  background-color: #8cc8a2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-image: url(../img/PAU.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow-y: hidden;
 }
-
 .backg {
   position: absolute;
 }
 .login {
-  height: 220px;
-  width: 280px;
-  background-color: white;
-  position: relative;
-  top: 190px;
-  left: 25px;
-  padding-left: 30px;
+  width: 310px;
+  padding: 30px;
+  background-color: #855084cd;
+
   box-sizing: border-box;
   z-index: 1;
-  padding-top: 50px;
+  margin: auto;
+
 }
 .frm {
   position: relative;
   top: 50px;
+  height: 100vh;
 }
 .face {
   height: 120px;
@@ -243,10 +240,20 @@ span {
 }
 input {
   color: #4d4449;
-  width: 180px;
+  width: -webkit-fill-available;
   border: none;
   outline: none;
   border-bottom: 1px solid #4d4449;
+  font-family: "Ubuntu", sans-serif;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+}
+label {
+  display: block;
+  width: 90%;
+  text-align: left;
+  margin-bottom: 6px;
+  color: white;
   font-family: "Ubuntu", sans-serif;
 }
 .fa {
@@ -255,14 +262,24 @@ input {
   outline: none;
 }
 button {
-  background-color: #8cc8a2;
+  background-color: #512779;
   outline: none;
   border: none;
   color: white;
   font-family: "Ubuntu", sans-serif;
-  font-size: 23px;
+  font-size:17px;
   text-transform: uppercase;
-  padding: 5px;
+  padding: 10px;
   position: relative;
-  left: 72px;
+  /* left: 72px; */
+  width: 100%;
+  border-radius: 10px;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 120px;
 }
