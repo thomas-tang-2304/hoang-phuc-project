@@ -35,7 +35,7 @@ dbRefMonitor.child("Speed").on("value", (snap) => {
 });
 
 dbRefMonitor.child("Voltage").on("value", (snap) => {
-  const val = snap.node_.children_.root_.left.value.value_;
+  const val = parseFloat(snap.node_.children_.root_.left.value.value_).toFixed(1);
   triggerColor("#voltage", val, `${val} V`);
 });
 
